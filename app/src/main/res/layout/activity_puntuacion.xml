@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:padding="10dp"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="sodimac.net.appsodimac.view.PuntuacionActivity">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Observaciones"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1"
+            android:layout_below="@+id/textView12"
+            android:layout_alignEnd="@+id/textView10"
+            android:layout_marginTop="24dp" />
+
+        <Spinner
+        android:id="@+id/spConocimiento"
+        android:layout_width="208dp"
+        android:layout_height="49dp"
+        tools:layout_editor_absoluteY="399dp"
+        tools:layout_editor_absoluteX="149dp"
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/textView5"
+        android:layout_alignEnd="@+id/textView5" />
+
+    <Spinner
+        android:id="@+id/spDesempeño"
+        android:layout_width="256dp"
+        android:layout_height="50dp"
+
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/spPuntualidad"
+        android:layout_alignStart="@+id/spConocimiento"
+        android:layout_alignEnd="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pantalla de puntuación"
+        android:textSize="24sp"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="573dp"
+        android:layout_height="47dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="8dp"
+        android:text="Querido usuario, le pedimos amablemente que puntúe el rendimiento del experto, para así mejorar el servicio brindado"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="18dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="107dp"
+        android:layout_height="35dp"
+        android:text="Puntualidad"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="9dp"
+        android:layout_above="@+id/spDesempeño"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Desempeño"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.509"
+
+        android:layout_marginBottom="9dp"
+        android:layout_alignBottom="@+id/spDesempeño"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Conocimiento"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spPuntualidad"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="9dp"
+        app:layout_constraintVertical_bias="0.268"
+        android:layout_marginBottom="7dp"
+        android:layout_above="@+id/spPuntualidad"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:id="@+id/spPuntualidad"
+        android:layout_width="226dp"
+        android:layout_height="46dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="10dp"
+        tools:layout_editor_absoluteX="145dp"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/spConocimiento"
+        android:layout_alignStart="@+id/spConocimiento" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Precio de trabajo"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1"
+            android:layout_marginTop="31dp"
+            android:layout_below="@+id/txtObservaciones"
+            android:layout_alignStart="@+id/textView8" />
+
+
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*Solo puntuar con SIN PUNTUAR si el experto no llegó a su ubicación"
+        android:textColor="@android:color/holo_red_light"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1"
+
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/spDesempeño"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/btnEnviarPuntuacion"
+        android:layout_width="585dp"
+        android:layout_height="49dp"
+        android:layout_marginLeft="0dp"
+        android:text="Enviar"
+
+        android:layout_below="@+id/editText"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/txtObservaciones"
+            android:layout_width="200dp"
+            android:layout_height="115dp"
+            android:ems="10"
+            android:hint="Inserte aquí sus observaciones"
+            android:inputType="textMultiLine"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintRight_creator="1"
+            app:layout_constraintRight_toRightOf="@+id/textView5"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintTop_toBottomOf="@+id/spConocimiento"
+            android:layout_marginRight="219dp"
+            android:layout_alignBaseline="@+id/textView4"
+            android:layout_alignBottom="@+id/textView4"
+            android:layout_alignStart="@+id/spDesempeño" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Precio"
+            android:inputType="textPersonName"
+            android:layout_alignBaseline="@+id/textView11"
+            android:layout_alignBottom="@+id/textView11"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</ScrollView>
