@@ -85,9 +85,9 @@ if(!user.getText().toString().isEmpty() && !clave.getText().toString().isEmpty()
 
     try {
         Log.e("PROGRESO","INICIANDO SESION");
-        String request = "http://"+rutaServicio+":8080/SpringRest/iniciosesion?" +
-                "usuario=" + user.getText().toString() +
-                "&clave=" + clave.getText().toString();
+        String request = "http://"+rutaServicio+"iniciosesion/" +
+                 user.getText().toString() +
+                "/" + clave.getText().toString();
 
         URL url = new URL(request);
         connection = (HttpURLConnection) url.openConnection();

@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BDSodimac" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=PC_DZAMUDIO;Initial Catalog=BDSodimac;User ID=sa" SettingsObjectName="ServicioWeb.Properties.Settings" SettingsPropertyName="BDSodimacConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="Sodimac.GesAfiliado" Member="GesAfiliado">
+    <Type Name="GesAfiliado">
+      <Column Name="IdAfiliado" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdTipoDocumento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumDocumentoIdentidad" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="ApellidoPaterno" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="ApellidoMaterno" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombres" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="IdUbigeo" Type="System.String" DbType="Char(9) NOT NULL" CanBeNull="false" />
+      <Column Name="DireccionDomicilio" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="CorreoElectronico" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Fotografia" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CurriculumVitae" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="DocumentoIdentidad" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CertificadoPolicial" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdTipoAfiliado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="GesAfiliado_GesAfiliadoOficio" Member="GesAfiliadoOficio" ThisKey="IdAfiliado" OtherKey="IdAfiliado" Type="GesAfiliadoOficio" />
+      <Association Name="GesAfiliado_GesSolicitud" Member="GesSolicitud" ThisKey="IdAfiliado" OtherKey="IdAfiliado" Type="GesSolicitud" />
+      <Association Name="GesAfiliado_SegUsuario" Member="SegUsuario" ThisKey="IdAfiliado" OtherKey="IdAfiliado" Type="SegUsuario" />
+      <Association Name="GesTipoAfiliado_GesAfiliado" Member="GesTipoAfiliado" ThisKey="IdTipoAfiliado" OtherKey="IdTipoAfiliado" Type="GesTipoAfiliado" IsForeignKey="true" />
+      <Association Name="RrhUbigeo_GesAfiliado" Member="RrhUbigeo" ThisKey="IdUbigeo" OtherKey="IdUbigeo" Type="RrhUbigeo" IsForeignKey="true" />
+      <Association Name="SegEstadoRegistro_GesAfiliado" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.GesAfiliadoOficio" Member="GesAfiliadoOficio">
+    <Type Name="GesAfiliadoOficio">
+      <Column Name="IdAfiliado" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdOficio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="GesAfiliado_GesAfiliadoOficio" Member="GesAfiliado" ThisKey="IdAfiliado" OtherKey="IdAfiliado" Type="GesAfiliado" IsForeignKey="true" />
+      <Association Name="GesOficio_GesAfiliadoOficio" Member="GesOficio" ThisKey="IdOficio" OtherKey="IdOficio" Type="GesOficio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.GesCliente" Member="GesCliente">
+    <Type Name="GesCliente">
+      <Column Name="IdCliente" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdTipoDocumento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumDocumentoIdentidad" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="ApellidoPaterno" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="ApellidoMaterno" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombres" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="IdUbigeo" Type="System.String" DbType="Char(9) NOT NULL" CanBeNull="false" />
+      <Column Name="DireccionDomicilio" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="CorreoElectronico" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="GesCliente_GesSolicitud" Member="GesSolicitud" ThisKey="IdCliente" OtherKey="IdCliente" Type="GesSolicitud" />
+      <Association Name="GesCliente_SegUsuario" Member="SegUsuario" ThisKey="IdCliente" OtherKey="IdCliente" Type="SegUsuario" />
+      <Association Name="RrhUbigeo_GesCliente" Member="RrhUbigeo" ThisKey="IdUbigeo" OtherKey="IdUbigeo" Type="RrhUbigeo" IsForeignKey="true" />
+      <Association Name="SegEstadoRegistro_GesCliente" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.GesEstadoSolicitud" Member="GesEstadoSolicitud">
+    <Type Name="GesEstadoSolicitud">
+      <Column Name="IdEstadoSolicitud" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EstadoSolicitud" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="GesEstadoSolicitud_GesSolicitud" Member="GesSolicitud" ThisKey="IdEstadoSolicitud" OtherKey="IdEstadoSolicitud" Type="GesSolicitud" />
+      <Association Name="SegEstadoRegistro_GesEstadoSolicitud" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.GesLugarOcurrencia" Member="GesLugarOcurrencia">
+    <Type Name="GesLugarOcurrencia">
+      <Column Name="IdLugarOcurrencia" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LugarOcurrencia" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="GesLugarOcurrencia_GesReclamo" Member="GesReclamo" ThisKey="IdLugarOcurrencia" OtherKey="IdLugarOcurrencia" Type="GesReclamo" />
+      <Association Name="SegEstadoRegistro_GesLugarOcurrencia" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.GesOficio" Member="GesOficio">
+    <Type Name="GesOficio">
+      <Column Name="IdOficio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Oficio" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="GesOficio_GesAfiliadoOficio" Member="GesAfiliadoOficio" ThisKey="IdOficio" OtherKey="IdOficio" Type="GesAfiliadoOficio" />
+      <Association Name="GesOficio_GesSolicitud" Member="GesSolicitud" ThisKey="IdOficio" OtherKey="IdOficio" Type="GesSolicitud" />
+      <Association Name="SegEstadoRegistro_GesOficio" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.GesPuntuacion" Member="GesPuntuacion">
+    <Type Name="GesPuntuacion">
+      <Column Name="IdPuntuacion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Puntuacion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="GesPuntuacion_GesSolicitud" Member="GesSolicitud" ThisKey="IdPuntuacion" OtherKey="Puntualidad" Type="GesSolicitud" />
+      <Association Name="GesPuntuacion_GesSolicitud1" Member="GesSolicitud1" ThisKey="IdPuntuacion" OtherKey="Desempenio" Type="GesSolicitud" />
+      <Association Name="GesPuntuacion_GesSolicitud2" Member="GesSolicitud2" ThisKey="IdPuntuacion" OtherKey="Conocimiento" Type="GesSolicitud" />
+      <Association Name="SegEstadoRegistro_GesPuntuacion" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.GesReclamo" Member="GesReclamo">
+    <Type Name="GesReclamo">
+      <Column Name="IdReclamo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdTipoDocumento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DocumentoIdentidad" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="ApellidoPaterno" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="ApellidoMaterno" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombres" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DireccionDomicilio" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="CorreoElectronico" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apoderado" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="IdLugarOcurrencia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdTipoReclamo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Contenido" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="GesLugarOcurrencia_GesReclamo" Member="GesLugarOcurrencia" ThisKey="IdLugarOcurrencia" OtherKey="IdLugarOcurrencia" Type="GesLugarOcurrencia" IsForeignKey="true" />
+      <Association Name="GesTipoReclamo_GesReclamo" Member="GesTipoReclamo" ThisKey="IdTipoReclamo" OtherKey="IdTipoReclamo" Type="GesTipoReclamo" IsForeignKey="true" />
+      <Association Name="SegEstadoRegistro_GesReclamo" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.GesSolicitud" Member="GesSolicitud">
+    <Type Name="GesSolicitud">
+      <Column Name="IdSolicitud" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdCliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdAfiliado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdOficio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Puntualidad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Desempenio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Conocimiento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Observacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdEstadoSolicitud" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="GesAfiliado_GesSolicitud" Member="GesAfiliado" ThisKey="IdAfiliado" OtherKey="IdAfiliado" Type="GesAfiliado" IsForeignKey="true" />
+      <Association Name="GesCliente_GesSolicitud" Member="GesCliente" ThisKey="IdCliente" OtherKey="IdCliente" Type="GesCliente" IsForeignKey="true" />
+      <Association Name="GesEstadoSolicitud_GesSolicitud" Member="GesEstadoSolicitud" ThisKey="IdEstadoSolicitud" OtherKey="IdEstadoSolicitud" Type="GesEstadoSolicitud" IsForeignKey="true" />
+      <Association Name="GesOficio_GesSolicitud" Member="GesOficio" ThisKey="IdOficio" OtherKey="IdOficio" Type="GesOficio" IsForeignKey="true" />
+      <Association Name="GesPuntuacion_GesSolicitud" Member="GesPuntuacion" ThisKey="Puntualidad" OtherKey="IdPuntuacion" Type="GesPuntuacion" IsForeignKey="true" />
+      <Association Name="GesPuntuacion_GesSolicitud1" Member="GesPuntuacion1" ThisKey="Desempenio" OtherKey="IdPuntuacion" Type="GesPuntuacion" IsForeignKey="true" />
+      <Association Name="GesPuntuacion_GesSolicitud2" Member="GesPuntuacion2" ThisKey="Conocimiento" OtherKey="IdPuntuacion" Type="GesPuntuacion" IsForeignKey="true" />
+      <Association Name="SegEstadoRegistro_GesSolicitud" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.GesTipoAfiliado" Member="GesTipoAfiliado">
+    <Type Name="GesTipoAfiliado">
+      <Column Name="IdTipoAfiliado" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TipoAfiliado" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="GesTipoAfiliado_GesAfiliado" Member="GesAfiliado" ThisKey="IdTipoAfiliado" OtherKey="IdTipoAfiliado" Type="GesAfiliado" />
+      <Association Name="SegEstadoRegistro_GesTipoAfiliado" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.GesTipoReclamo" Member="GesTipoReclamo">
+    <Type Name="GesTipoReclamo">
+      <Column Name="IdTipoReclamo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TipoReclamo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="GesTipoReclamo_GesReclamo" Member="GesReclamo" ThisKey="IdTipoReclamo" OtherKey="IdTipoReclamo" Type="GesReclamo" />
+      <Association Name="SegEstadoRegistro_GesTipoReclamo" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.RrhCargo" Member="RrhCargo">
+    <Type Name="RrhCargo">
+      <Column Name="IdCargo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cargo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="RrhCargo_RrhPersonal" Member="RrhPersonal" ThisKey="IdCargo" OtherKey="IdCargo" Type="RrhPersonal" />
+      <Association Name="SegEstadoRegistro_RrhCargo" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.RrhEmpresa" Member="RrhEmpresa">
+    <Type Name="RrhEmpresa">
+      <Column Name="IdEmpresa" Type="System.String" DbType="Char(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ruc" Type="System.String" DbType="Char(11) NOT NULL" CanBeNull="false" />
+      <Column Name="RazonSocial" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DocumentoIdentidad" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="RepresentanteLegal" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IdUbigeo" Type="System.String" DbType="Char(9) NOT NULL" CanBeNull="false" />
+      <Column Name="CodigoPostal" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="IdUsuarioCreacion" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IdUsuarioModificacion" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="RrhUbigeo_RrhEmpresa" Member="RrhUbigeo" ThisKey="IdUbigeo" OtherKey="IdUbigeo" Type="RrhUbigeo" IsForeignKey="true" />
+      <Association Name="SegEstadoRegistro_RrhEmpresa" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+      <Association Name="SegUsuario_RrhEmpresa" Member="SegUsuario" ThisKey="IdUsuarioCreacion" OtherKey="IdUsuario" Type="SegUsuario" IsForeignKey="true" />
+      <Association Name="SegUsuario_RrhEmpresa1" Member="SegUsuario1" ThisKey="IdUsuarioModificacion" OtherKey="IdUsuario" Type="SegUsuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.RrhPersonal" Member="RrhPersonal">
+    <Type Name="RrhPersonal">
+      <Column Name="IdPersonal" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdTipoDocumento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumDocumentoIdentidad" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="ApellidoPaterno" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="ApellidoMaterno" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombres" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="IdUbigeo" Type="System.String" DbType="Char(9) NOT NULL" CanBeNull="false" />
+      <Column Name="DireccionDomicilio" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="IdCargo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CorreoElectronico" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdUsuarioCreacion" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IdUsuarioModificacion" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="RrhPersonal_SegUsuario" Member="SegUsuario2" ThisKey="IdPersonal" OtherKey="IdPersonal" Type="SegUsuario" />
+      <Association Name="RrhCargo_RrhPersonal" Member="RrhCargo" ThisKey="IdCargo" OtherKey="IdCargo" Type="RrhCargo" IsForeignKey="true" />
+      <Association Name="RrhUbigeo_RrhPersonal" Member="RrhUbigeo" ThisKey="IdUbigeo" OtherKey="IdUbigeo" Type="RrhUbigeo" IsForeignKey="true" />
+      <Association Name="SegEstadoRegistro_RrhPersonal" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+      <Association Name="SegUsuario_RrhPersonal" Member="SegUsuario" ThisKey="IdUsuarioCreacion" OtherKey="IdUsuario" Type="SegUsuario" IsForeignKey="true" />
+      <Association Name="SegUsuario_RrhPersonal1" Member="SegUsuario1" ThisKey="IdUsuarioModificacion" OtherKey="IdUsuario" Type="SegUsuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.RrhUbigeo" Member="RrhUbigeo">
+    <Type Name="RrhUbigeo">
+      <Column Name="IdUbigeo" Type="System.String" DbType="Char(9) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Departamento" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Provincia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Distrito" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="RrhUbigeo_GesAfiliado" Member="GesAfiliado" ThisKey="IdUbigeo" OtherKey="IdUbigeo" Type="GesAfiliado" />
+      <Association Name="RrhUbigeo_GesCliente" Member="GesCliente" ThisKey="IdUbigeo" OtherKey="IdUbigeo" Type="GesCliente" />
+      <Association Name="RrhUbigeo_RrhEmpresa" Member="RrhEmpresa" ThisKey="IdUbigeo" OtherKey="IdUbigeo" Type="RrhEmpresa" />
+      <Association Name="RrhUbigeo_RrhPersonal" Member="RrhPersonal" ThisKey="IdUbigeo" OtherKey="IdUbigeo" Type="RrhPersonal" />
+      <Association Name="SegEstadoRegistro_RrhUbigeo" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.SegEstadoRegistro" Member="SegEstadoRegistro">
+    <Type Name="SegEstadoRegistro">
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EstadoRegistro" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="SegEstadoRegistro_GesAfiliado" Member="GesAfiliado" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="GesAfiliado" />
+      <Association Name="SegEstadoRegistro_GesCliente" Member="GesCliente" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="GesCliente" />
+      <Association Name="SegEstadoRegistro_GesEstadoSolicitud" Member="GesEstadoSolicitud" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="GesEstadoSolicitud" />
+      <Association Name="SegEstadoRegistro_GesLugarOcurrencia" Member="GesLugarOcurrencia" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="GesLugarOcurrencia" />
+      <Association Name="SegEstadoRegistro_GesOficio" Member="GesOficio" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="GesOficio" />
+      <Association Name="SegEstadoRegistro_GesPuntuacion" Member="GesPuntuacion" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="GesPuntuacion" />
+      <Association Name="SegEstadoRegistro_GesReclamo" Member="GesReclamo" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="GesReclamo" />
+      <Association Name="SegEstadoRegistro_GesSolicitud" Member="GesSolicitud" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="GesSolicitud" />
+      <Association Name="SegEstadoRegistro_GesTipoAfiliado" Member="GesTipoAfiliado" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="GesTipoAfiliado" />
+      <Association Name="SegEstadoRegistro_GesTipoReclamo" Member="GesTipoReclamo" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="GesTipoReclamo" />
+      <Association Name="SegEstadoRegistro_RrhCargo" Member="RrhCargo" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="RrhCargo" />
+      <Association Name="SegEstadoRegistro_RrhEmpresa" Member="RrhEmpresa" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="RrhEmpresa" />
+      <Association Name="SegEstadoRegistro_RrhPersonal" Member="RrhPersonal" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="RrhPersonal" />
+      <Association Name="SegEstadoRegistro_RrhUbigeo" Member="RrhUbigeo" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="RrhUbigeo" />
+      <Association Name="SegEstadoRegistro_SegPerfil" Member="SegPerfil" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegPerfil" />
+      <Association Name="SegEstadoRegistro_SegSesion" Member="SegSesion" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegSesion" />
+      <Association Name="SegEstadoRegistro_SegUsuario" Member="SegUsuario" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegUsuario" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.SegPerfil" Member="SegPerfil">
+    <Type Name="SegPerfil">
+      <Column Name="IdPerfil" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Perfil" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SegPerfil_SegSesion" Member="SegSesion" ThisKey="IdPerfil" OtherKey="IdPerfil" Type="SegSesion" />
+      <Association Name="SegPerfil_SegUsuario" Member="SegUsuario" ThisKey="IdPerfil" OtherKey="IdPerfil" Type="SegUsuario" />
+      <Association Name="SegEstadoRegistro_SegPerfil" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.SegSesion" Member="SegSesion">
+    <Type Name="SegSesion">
+      <Column Name="IdSesion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdUsuario" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+      <Column Name="IdPerfil" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumIP" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaIngreso" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaSalida" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SegEstadoRegistro_SegSesion" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+      <Association Name="SegPerfil_SegSesion" Member="SegPerfil" ThisKey="IdPerfil" OtherKey="IdPerfil" Type="SegPerfil" IsForeignKey="true" />
+      <Association Name="SegUsuario_SegSesion" Member="SegUsuario" ThisKey="IdUsuario" OtherKey="IdUsuario" Type="SegUsuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Sodimac.SegUsuario" Member="SegUsuario">
+    <Type Name="SegUsuario">
+      <Column Name="IdUsuario" Type="System.String" DbType="Char(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Clave" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdPerfil" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdPersonal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdAfiliado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdUsuarioCreacion" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IdUsuarioModificacion" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdEstadoRegistro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SegUsuario_RrhEmpresa" Member="RrhEmpresa" ThisKey="IdUsuario" OtherKey="IdUsuarioCreacion" Type="RrhEmpresa" />
+      <Association Name="SegUsuario_RrhEmpresa1" Member="RrhEmpresa1" ThisKey="IdUsuario" OtherKey="IdUsuarioModificacion" Type="RrhEmpresa" />
+      <Association Name="SegUsuario_RrhPersonal" Member="RrhPersonal" ThisKey="IdUsuario" OtherKey="IdUsuarioCreacion" Type="RrhPersonal" />
+      <Association Name="SegUsuario_RrhPersonal1" Member="RrhPersonal1" ThisKey="IdUsuario" OtherKey="IdUsuarioModificacion" Type="RrhPersonal" />
+      <Association Name="SegUsuario_SegSesion" Member="SegSesion" ThisKey="IdUsuario" OtherKey="IdUsuario" Type="SegSesion" />
+      <Association Name="SegUsuario_SegUsuario" Member="SegUsuario2" ThisKey="IdUsuario" OtherKey="IdUsuarioCreacion" Type="SegUsuario" />
+      <Association Name="SegUsuario_SegUsuario1" Member="SegUsuario4" ThisKey="IdUsuario" OtherKey="IdUsuarioModificacion" Type="SegUsuario" />
+      <Association Name="GesAfiliado_SegUsuario" Member="GesAfiliado" ThisKey="IdAfiliado" OtherKey="IdAfiliado" Type="GesAfiliado" IsForeignKey="true" />
+      <Association Name="GesCliente_SegUsuario" Member="GesCliente" ThisKey="IdCliente" OtherKey="IdCliente" Type="GesCliente" IsForeignKey="true" />
+      <Association Name="RrhPersonal_SegUsuario" Member="RrhPersonal2" ThisKey="IdPersonal" OtherKey="IdPersonal" Type="RrhPersonal" IsForeignKey="true" />
+      <Association Name="SegEstadoRegistro_SegUsuario" Member="SegEstadoRegistro" ThisKey="IdEstadoRegistro" OtherKey="IdEstadoRegistro" Type="SegEstadoRegistro" IsForeignKey="true" />
+      <Association Name="SegPerfil_SegUsuario" Member="SegPerfil" ThisKey="IdPerfil" OtherKey="IdPerfil" Type="SegPerfil" IsForeignKey="true" />
+      <Association Name="SegUsuario_SegUsuario" Member="SegUsuario1" ThisKey="IdUsuarioCreacion" OtherKey="IdUsuario" Type="SegUsuario" IsForeignKey="true" />
+      <Association Name="SegUsuario_SegUsuario1" Member="SegUsuario3" ThisKey="IdUsuarioModificacion" OtherKey="IdUsuario" Type="SegUsuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="Sodimac.GesAfiliado_Actualizar" Method="GesAfiliado_Actualizar">
+    <Parameter Name="IdAfiliado" Parameter="idAfiliado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdTipoDocumento" Parameter="idTipoDocumento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumDocumentoIdentidad" Parameter="numDocumentoIdentidad" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="ApellidoPaterno" Parameter="apellidoPaterno" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="ApellidoMaterno" Parameter="apellidoMaterno" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="Nombres" Parameter="nombres" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="Telefono" Parameter="telefono" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="IdUbigeo" Parameter="idUbigeo" Type="System.String" DbType="Char(9)" />
+    <Parameter Name="DireccionDomicilio" Parameter="direccionDomicilio" Type="System.String" DbType="VarChar(80)" />
+    <Parameter Name="CorreoElectronico" Parameter="correoElectronico" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Fotografia" Parameter="fotografia" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="CurriculumVitae" Parameter="curriculumVitae" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="DocumentoIdentidad" Parameter="documentoIdentidad" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="CertificadoPolicial" Parameter="certificadoPolicial" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="IdTipoAfiliado" Parameter="idTipoAfiliado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FechaCreacion" Parameter="fechaCreacion" Type="System.String" DbType="VarChar(19)" />
+    <Parameter Name="FechaModificacion" Parameter="fechaModificacion" Type="System.String" DbType="VarChar(19)" />
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.GesAfiliado_Insertar" Method="GesAfiliado_Insertar">
+    <Parameter Name="IdAfiliado" Parameter="idAfiliado" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="IdTipoDocumento" Parameter="idTipoDocumento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumDocumentoIdentidad" Parameter="numDocumentoIdentidad" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="ApellidoPaterno" Parameter="apellidoPaterno" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="ApellidoMaterno" Parameter="apellidoMaterno" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="Nombres" Parameter="nombres" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="Telefono" Parameter="telefono" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="IdUbigeo" Parameter="idUbigeo" Type="System.String" DbType="Char(9)" />
+    <Parameter Name="DireccionDomicilio" Parameter="direccionDomicilio" Type="System.String" DbType="VarChar(80)" />
+    <Parameter Name="CorreoElectronico" Parameter="correoElectronico" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Fotografia" Parameter="fotografia" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="CurriculumVitae" Parameter="curriculumVitae" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="DocumentoIdentidad" Parameter="documentoIdentidad" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="CertificadoPolicial" Parameter="certificadoPolicial" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="IdTipoAfiliado" Parameter="idTipoAfiliado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FechaCreacion" Parameter="fechaCreacion" Type="System.String" DbType="VarChar(19)" />
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.GesAfiliado_Obtener" Method="GesAfiliado_Obtener">
+    <Parameter Name="IdAfiliado" Parameter="idAfiliado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdTipoDocumento" Parameter="idTipoDocumento" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="NumDocumentoIdentidad" Parameter="numDocumentoIdentidad" Type="System.String" DbType="VarChar(15)" Direction="InOut" />
+    <Parameter Name="ApellidoPaterno" Parameter="apellidoPaterno" Type="System.String" DbType="VarChar(40)" Direction="InOut" />
+    <Parameter Name="ApellidoMaterno" Parameter="apellidoMaterno" Type="System.String" DbType="VarChar(40)" Direction="InOut" />
+    <Parameter Name="Nombres" Parameter="nombres" Type="System.String" DbType="VarChar(40)" Direction="InOut" />
+    <Parameter Name="Telefono" Parameter="telefono" Type="System.String" DbType="VarChar(15)" Direction="InOut" />
+    <Parameter Name="IdUbigeo" Parameter="idUbigeo" Type="System.String" DbType="Char(9)" Direction="InOut" />
+    <Parameter Name="DireccionDomicilio" Parameter="direccionDomicilio" Type="System.String" DbType="VarChar(80)" Direction="InOut" />
+    <Parameter Name="CorreoElectronico" Parameter="correoElectronico" Type="System.String" DbType="VarChar(50)" Direction="InOut" />
+    <Parameter Name="Fotografia" Parameter="fotografia" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" Direction="InOut" />
+    <Parameter Name="CurriculumVitae" Parameter="curriculumVitae" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" Direction="InOut" />
+    <Parameter Name="DocumentoIdentidad" Parameter="documentoIdentidad" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" Direction="InOut" />
+    <Parameter Name="CertificadoPolicial" Parameter="certificadoPolicial" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" Direction="InOut" />
+    <Parameter Name="IdTipoAfiliado" Parameter="idTipoAfiliado" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="FechaModificacion" Parameter="fechaModificacion" Type="System.String" DbType="VarChar(19)" Direction="InOut" />
+    <Parameter Name="FechaCreacion" Parameter="fechaCreacion" Type="System.String" DbType="VarChar(19)" Direction="InOut" />
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.GesAfiliadoOficio_Eliminar" Method="GesAfiliadoOficio_Eliminar">
+    <Parameter Name="IdAfiliado" Parameter="idAfiliado" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.GesAfiliadoOficio_Insertar" Method="GesAfiliadoOficio_Insertar">
+    <Parameter Name="IdAfiliado" Parameter="idAfiliado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdOficio" Parameter="idOficio" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.GesAfiliadoOficio_Listar" Method="GesAfiliadoOficio_Listar">
+    <Parameter Name="IdAfiliado" Parameter="idAfiliado" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GesAfiliadoOficio_ListarResult">
+      <Column Name="IdOficio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Sodimac.GesCliente_InsertarConUsuario" Method="GesCliente_InsertarConUsuario">
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="IdTipoDocumento" Parameter="idTipoDocumento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumDocumentoIdentidad" Parameter="numDocumentoIdentidad" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="ApellidoPaterno" Parameter="apellidoPaterno" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="ApellidoMaterno" Parameter="apellidoMaterno" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="Nombres" Parameter="nombres" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="Telefono" Parameter="telefono" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="IdUbigeo" Parameter="idUbigeo" Type="System.String" DbType="Char(9)" />
+    <Parameter Name="DireccionDomicilio" Parameter="direccionDomicilio" Type="System.String" DbType="VarChar(80)" />
+    <Parameter Name="CorreoElectronico" Parameter="correoElectronico" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="FechaCreacion" Parameter="fechaCreacion" Type="System.String" DbType="VarChar(19)" />
+    <Parameter Name="FechaModificacion" Parameter="fechaModificacion" Type="System.String" DbType="VarChar(19)" />
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ClaveUsuario" Parameter="claveUsuario" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.GesLugarOcurrencia_ListarDes" Method="GesLugarOcurrencia_ListarDes">
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GesLugarOcurrencia_ListarDesResult">
+      <Column Name="IdLugarOcurrencia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LugarOcurrencia" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Sodimac.GesOficio_ListarDes" Method="GesOficio_ListarDes">
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GesOficio_ListarDesResult">
+      <Column Name="IdOficio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Oficio" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Sodimac.GesOficio_ListarPorAfiliado" Method="GesOficio_ListarPorAfiliado">
+    <Parameter Name="IdAfiliado" Parameter="idAfiliado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GesOficio_ListarPorAfiliadoResult">
+      <Column Name="IdOficio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Oficio" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Sodimac.GesReclamo_Insertar" Method="GesReclamo_Insertar">
+    <Parameter Name="IdReclamo" Parameter="idReclamo" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="IdTipoDocumento" Parameter="idTipoDocumento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DocumentoIdentidad" Parameter="documentoIdentidad" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="ApellidoPaterno" Parameter="apellidoPaterno" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="ApellidoMaterno" Parameter="apellidoMaterno" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="Nombres" Parameter="nombres" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="Telefono" Parameter="telefono" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="DireccionDomicilio" Parameter="direccionDomicilio" Type="System.String" DbType="VarChar(80)" />
+    <Parameter Name="CorreoElectronico" Parameter="correoElectronico" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Apoderado" Parameter="apoderado" Type="System.String" DbType="VarChar(60)" />
+    <Parameter Name="IdLugarOcurrencia" Parameter="idLugarOcurrencia" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdTipoReclamo" Parameter="idTipoReclamo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Contenido" Parameter="contenido" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="FechaCreacion" Parameter="fechaCreacion" Type="System.String" DbType="VarChar(19)" />
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.GesSolicitud_ListarConsulta" Method="GesSolicitud_ListarConsulta">
+    <Parameter Name="IdAfiliado" Parameter="idAfiliado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdOficio" Parameter="idOficio" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GesSolicitud_ListarConsultaResult">
+      <Column Name="Elemento" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Distrito" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DireccionDomicilio" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="Cliente" Type="System.String" DbType="VarChar(123) NOT NULL" CanBeNull="false" />
+      <Column Name="Oficio" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Puntualidad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Desempenio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Conocimiento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="EstadoSolicitud" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Sodimac.GesTipoDocumento_ListarDes" Method="GesTipoDocumento_ListarDes">
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GesTipoDocumento_ListarDesResult">
+      <Column Name="IdTipoDocumento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TipoDocumento" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Sodimac.GesTipoReclamo_ListarDes" Method="GesTipoReclamo_ListarDes">
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GesTipoReclamo_ListarDesResult">
+      <Column Name="IdTipoReclamo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TipoReclamo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Sodimac.RrhCargo_ListarDes" Method="RrhCargo_ListarDes">
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" />
+    <ElementType Name="RrhCargo_ListarDesResult">
+      <Column Name="IdCargo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cargo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Sodimac.RrhEmpresa_Obtener" Method="RrhEmpresa_Obtener">
+    <Parameter Name="IdEmpresa" Parameter="idEmpresa" Type="System.String" DbType="Char(3)" />
+    <Parameter Name="Ruc" Parameter="ruc" Type="System.String" DbType="Char(11)" Direction="InOut" />
+    <Parameter Name="RazonSocial" Parameter="razonSocial" Type="System.String" DbType="VarChar(50)" Direction="InOut" />
+    <Parameter Name="DocumentoIdentidad" Parameter="documentoIdentidad" Type="System.String" DbType="VarChar(11)" Direction="InOut" />
+    <Parameter Name="RepresentanteLegal" Parameter="representanteLegal" Type="System.String" DbType="VarChar(50)" Direction="InOut" />
+    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="VarChar(100)" Direction="InOut" />
+    <Parameter Name="IdUbigeo" Parameter="idUbigeo" Type="System.String" DbType="Char(9)" Direction="InOut" />
+    <Parameter Name="CodigoPostal" Parameter="codigoPostal" Type="System.String" DbType="VarChar(10)" Direction="InOut" />
+    <Parameter Name="Telefono" Parameter="telefono" Type="System.String" DbType="VarChar(15)" Direction="InOut" />
+    <Parameter Name="IdUsuarioCreacion" Parameter="idUsuarioCreacion" Type="System.String" DbType="Char(3)" Direction="InOut" />
+    <Parameter Name="FechaCreacion" Parameter="fechaCreacion" Type="System.String" DbType="VarChar(19)" Direction="InOut" />
+    <Parameter Name="IdUsuarioModificacion" Parameter="idUsuarioModificacion" Type="System.String" DbType="Char(3)" Direction="InOut" />
+    <Parameter Name="FechaModificacion" Parameter="fechaModificacion" Type="System.String" DbType="VarChar(19)" Direction="InOut" />
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.RrhPersonal_ListarMan" Method="RrhPersonal_ListarMan">
+    <Parameter Name="Personal" Parameter="personal" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="IdCargo" Parameter="idCargo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" />
+    <ElementType Name="RrhPersonal_ListarManResult">
+      <Column Name="IdPersonal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Personal" Type="System.String" DbType="VarChar(123) NOT NULL" CanBeNull="false" />
+      <Column Name="Cargo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EstadoRegistro" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Sodimac.RrhUbigeo_ListarUbicacion" Method="RrhUbigeo_ListarUbicacion">
+    <Parameter Name="IdUbigeo" Parameter="idUbigeo" Type="System.String" DbType="Char(9)" />
+    <Parameter Name="Ubigeo" Parameter="ubigeo" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="RrhUbigeo_ListarUbicacionResult">
+      <Column Name="IdUbigeo" Type="System.String" DbType="Char(9) NOT NULL" CanBeNull="false" />
+      <Column Name="Departamento" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Provincia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Distrito" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Sodimac.SegServidor_ObtenerDato" Method="SegServidor_ObtenerDato">
+    <Parameter Name="FechaHora" Parameter="fechaHora" Type="System.String" DbType="VarChar(19)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.SegSesion_Actualizar" Method="SegSesion_Actualizar">
+    <Parameter Name="IdSesion" Parameter="idSesion" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.String" DbType="Char(3)" />
+    <Parameter Name="IdPerfil" Parameter="idPerfil" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FechaIngreso" Parameter="fechaIngreso" Type="System.String" DbType="VarChar(19)" />
+    <Parameter Name="FechaSalida" Parameter="fechaSalida" Type="System.String" DbType="VarChar(19)" />
+    <Parameter Name="NumIP" Parameter="numIP" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.SegSesion_Insertar" Method="SegSesion_Insertar">
+    <Parameter Name="IdSesion" Parameter="idSesion" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.String" DbType="Char(3)" />
+    <Parameter Name="IdPerfil" Parameter="idPerfil" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumIP" Parameter="numIP" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="FechaIngreso" Parameter="fechaIngreso" Type="System.String" DbType="VarChar(19)" />
+    <Parameter Name="FechaSalida" Parameter="fechaSalida" Type="System.String" DbType="VarChar(19)" />
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.SegSesion_ListarCons" Method="SegSesion_ListarCons">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.String" DbType="Char(3)" />
+    <Parameter Name="FechaIngreso" Parameter="fechaIngreso" Type="System.String" DbType="VarChar(19)" />
+    <Parameter Name="FechaIngresoHasta" Parameter="fechaIngresoHasta" Type="System.String" DbType="VarChar(19)" />
+    <ElementType Name="SegSesion_ListarConsResult">
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Perfil" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NumIP" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaIngreso" Type="System.String" DbType="VarChar(19)" CanBeNull="true" />
+      <Column Name="HoraIngreso" Type="System.String" DbType="VarChar(19)" CanBeNull="true" />
+      <Column Name="FechaSalida" Type="System.String" DbType="VarChar(19)" CanBeNull="true" />
+      <Column Name="HoraSalida" Type="System.String" DbType="VarChar(19)" CanBeNull="true" />
+      <Column Name="IdSesion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Sodimac.SegSesion_Obtener" Method="SegSesion_Obtener">
+    <Parameter Name="IdSesion" Parameter="idSesion" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.String" DbType="Char(3)" Direction="InOut" />
+    <Parameter Name="IdPerfil" Parameter="idPerfil" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="NumIP" Parameter="numIP" Type="System.String" DbType="VarChar(15)" Direction="InOut" />
+    <Parameter Name="FechaIngreso" Parameter="fechaIngreso" Type="System.String" DbType="VarChar(19)" Direction="InOut" />
+    <Parameter Name="FechaSalida" Parameter="fechaSalida" Type="System.String" DbType="VarChar(19)" Direction="InOut" />
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.SegUsuario_Actualizar" Method="SegUsuario_Actualizar">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.String" DbType="Char(3)" />
+    <Parameter Name="Usuario" Parameter="usuario" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Clave" Parameter="clave" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IdPerfil" Parameter="idPerfil" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdPersonal" Parameter="idPersonal" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdAfiliado" Parameter="idAfiliado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdUsuarioCreacion" Parameter="idUsuarioCreacion" Type="System.String" DbType="Char(3)" />
+    <Parameter Name="FechaCreacion" Parameter="fechaCreacion" Type="System.String" DbType="VarChar(19)" />
+    <Parameter Name="IdUsuarioModificacion" Parameter="idUsuarioModificacion" Type="System.String" DbType="Char(3)" />
+    <Parameter Name="FechaModificacion" Parameter="fechaModificacion" Type="System.String" DbType="VarChar(19)" />
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.SegUsuario_Insertar" Method="SegUsuario_Insertar">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.String" DbType="Char(3)" Direction="InOut" />
+    <Parameter Name="Usuario" Parameter="usuario" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Clave" Parameter="clave" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IdPerfil" Parameter="idPerfil" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdPersonal" Parameter="idPersonal" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdAfiliado" Parameter="idAfiliado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdUsuarioCreacion" Parameter="idUsuarioCreacion" Type="System.String" DbType="Char(3)" />
+    <Parameter Name="FechaCreacion" Parameter="fechaCreacion" Type="System.String" DbType="VarChar(19)" />
+    <Parameter Name="IdUsuarioModificacion" Parameter="idUsuarioModificacion" Type="System.String" DbType="Char(3)" />
+    <Parameter Name="FechaModificacion" Parameter="fechaModificacion" Type="System.String" DbType="VarChar(19)" />
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.SegUsuario_Obtener" Method="SegUsuario_Obtener">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.String" DbType="Char(3)" />
+    <Parameter Name="Usuario" Parameter="usuario" Type="System.String" DbType="VarChar(50)" Direction="InOut" />
+    <Parameter Name="Clave" Parameter="clave" Type="System.String" DbType="VarChar(50)" Direction="InOut" />
+    <Parameter Name="IdPerfil" Parameter="idPerfil" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="IdPersonal" Parameter="idPersonal" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="IdAfiliado" Parameter="idAfiliado" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="IdUsuarioCreacion" Parameter="idUsuarioCreacion" Type="System.String" DbType="Char(3)" Direction="InOut" />
+    <Parameter Name="FechaCreacion" Parameter="fechaCreacion" Type="System.String" DbType="VarChar(19)" Direction="InOut" />
+    <Parameter Name="IdUsuarioModificacion" Parameter="idUsuarioModificacion" Type="System.String" DbType="Char(3)" Direction="InOut" />
+    <Parameter Name="FechaModificacion" Parameter="fechaModificacion" Type="System.String" DbType="VarChar(19)" Direction="InOut" />
+    <Parameter Name="IdEstadoRegistro" Parameter="idEstadoRegistro" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.SegUsuario_ObtenerPorAfiliado" Method="SegUsuario_ObtenerPorAfiliado">
+    <Parameter Name="IdAfiliado" Parameter="idAfiliado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.String" DbType="Char(3)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="Sodimac.SegUsuario_ObtenerPorNombreClave" Method="SegUsuario_ObtenerPorNombreClave">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.String" DbType="Char(3)" Direction="InOut" />
+    <Parameter Name="Usuario" Parameter="usuario" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Clave" Parameter="clave" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

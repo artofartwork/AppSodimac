@@ -1,0 +1,6 @@
+C:\Users\cvillanueva\Desktop\AppSodimac\ServiciosWebAppSodimac\C#\ServicioWeb\ServicioWeb\bin\Debug\ServicioWeb.dll.config
+C:\Users\cvillanueva\Desktop\AppSodimac\ServiciosWebAppSodimac\C#\ServicioWeb\ServicioWeb\bin\Debug\ServicioWeb.dll
+C:\Users\cvillanueva\Desktop\AppSodimac\ServiciosWebAppSodimac\C#\ServicioWeb\ServicioWeb\bin\Debug\ServicioWeb.pdb
+C:\Users\cvillanueva\Desktop\AppSodimac\ServiciosWebAppSodimac\C#\ServicioWeb\ServicioWeb\obj\Debug\ServicioWeb.csprojResolveAssemblyReference.cache
+C:\Users\cvillanueva\Desktop\AppSodimac\ServiciosWebAppSodimac\C#\ServicioWeb\ServicioWeb\obj\Debug\ServicioWeb.dll
+C:\Users\cvillanueva\Desktop\AppSodimac\ServiciosWebAppSodimac\C#\ServicioWeb\ServicioWeb\obj\Debug\ServicioWeb.pdb

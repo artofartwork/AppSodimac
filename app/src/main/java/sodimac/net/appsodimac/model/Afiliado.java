@@ -3,10 +3,10 @@ package sodimac.net.appsodimac.model;
 import java.io.File;
 import java.util.Date;
 
+
 /**
  * Created by Cuenta02 on 25/09/2017.
  */
-
 public class Afiliado {
 
     private int idafiliado;
