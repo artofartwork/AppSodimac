@@ -1,0 +1,12 @@
+net\sodimac\spring\controller\ClienteService$JSONResponseWrapper$Wrapper.class
+net\sodimac\spring\model\Customer.class
+net\sodimac\spring\dao\ClienteDAO.class
+net\sodimac\spring\controller\CustomerRestController.class
+net\sodimac\spring\controller\ClienteService.class
+net\sodimac\spring\config\AppConfig.class
+net\sodimac\spring\config\AppInitializer.class
+net\sodimac\spring\util\BDConexion.class
+net\sodimac\spring\dao\CustomerDAO.class
+net\sodimac\spring\controller\ClienteService$JSONResponseWrapper.class
+net\sodimac\spring\model\Cliente.class
+net\sodimac\spring\inter\IClienteDAO.class
