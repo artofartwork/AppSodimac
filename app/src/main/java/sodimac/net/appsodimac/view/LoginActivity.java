@@ -28,12 +28,16 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
+import Request.ApiConexion;
+import sodimac.net.appsodimac.LogicMethods.LogicMaestro;
 import sodimac.net.appsodimac.R;
 
 public class LoginActivity extends AppCompatActivity implements Validator.ValidationListener{
     protected Validator validator;
     protected boolean validated;
     public  String rutaServicio;
+    public LogicMaestro logicMaestro;
+
     @Email
     EditText user;
 
@@ -47,7 +51,7 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
         asignarReferencias();
         click();
         rutaServicio = getResources().getString(R.string.ruta_servicio);
-
+        logicMaestro = new LogicMaestro(this,null);
         validator = new Validator(this);
         validator.setValidationListener(this);
 
@@ -59,9 +63,10 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
             @Override
             public void onClick(View v) {
                 try {
-                    llamarServicio();
-                    validator.validate();
-                } catch (IOException e) {
+                    logicMaestro.doLogin(user.getText().toString(),clave.getText().toString());
+                    //llamarServicio();
+                   // validator.validate();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
